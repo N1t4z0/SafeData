@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Evaluar Políticas de Privacidad</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 300px;
+      padding: 10px;
+    }
+
+    h1 {
+      font-size: 18px;
+    }
+
+    p {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Evaluación de Políticas de Privacidad</h1>
+  <p id="result">Haz clic en el ícono de la extensión para iniciar la evaluación.</p>
+
+  <script>
+    // Escucha el mensaje enviado desde background.js
+    chrome.runtime.onMessage.addListener(function(message) {
+      // Actualiza el contenido de la evaluación de seguridad
+      const seguridad = message.seguridad;
+      const resultElement = document.getElementById('result');
+      resultElement.textContent = `Nivel de seguridad: ${seguridad}/5`;
+    });
+  </script>
+</body>
+</html>
